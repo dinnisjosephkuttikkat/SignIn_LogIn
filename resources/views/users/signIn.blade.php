@@ -5,8 +5,8 @@
     {{ Form::text('email', null) }}
     {{ Form::label('password', 'Enter Password') }}
     {{ Form::password('password', ['class' => 'awesome']) }}
-    {{ Form::label('password', 'Re-Enter Password') }}
-    {{ Form::password('password', ['class' => 'awesome']) }}
+    {{ Form::label('password1', 'Re-Enter Password') }}
+    {{ Form::password('password1', ['class' => 'awesome']) }}
     {{ Form::label('name', 'enter name') }}
     {{ Form::text('name', null) }}
     {{ Form::label('phone', 'Enter Phone') }}

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use DB;
 use App\Mail\TestMail;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function signUp(Request $request){
-        $user = User::where(['email'=>$request->email])->get();
-        if(count($user) > 0){
-            return redirect('/')->with('message','username already used');
+        $user = DB::table('users')->where('email', $request->email)->first();
+        if($user)
+        {
+            echo 'email already used'; 
         }
         if($request->password == $request->password1){
         User::create($request->all());  
@@ -18,7 +20,7 @@ class UsersController extends Controller
         }
         else
         {
-        return redirect('/')->with('failure','both the passwords do not match');    
+            echo 'password does not match';
         }
     }
     
